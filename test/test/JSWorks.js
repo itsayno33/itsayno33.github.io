@@ -19,9 +19,10 @@ onmessage = function(event) {
     return;
   }
 
-for (var i = 1; i <=2; i++) {
-  var worker = new Worker('JSWorks.js');
-  worker.onmessage = resultReceiver;
-  works.onerror = errorReceiber;
-  worker.postMessage( n - 1 );
-}
+  for (var i = 1; i <=2; i++) {
+    var worker = new Worker('JSWorks.js');
+    worker.onmessage = resultReceiver;
+    works.onerror = errorReceiber;
+    worker.postMessage( n - 1 );
+  }
+};
