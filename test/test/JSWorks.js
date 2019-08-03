@@ -22,7 +22,7 @@ onmessage = function(event) {
   for (var i = 1; i <=2; i++) {
     var worker = new Worker('JSWorks.js');
     worker.onmessage = resultReceiver;
-    works.onerror = errorReceiber;
+    works.onerror = errorReceiver;
     worker.postMessage( n - 1 );
   }
 };
