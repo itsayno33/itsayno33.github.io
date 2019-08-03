@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8" />
+<head>Test Page of Works Object by Java Script</head>
+<body>
+
+<div id="result"></div>
+
+<script language="javascript">
+  var worker= new Worker("JSWorks.js");
+  worker.onmessage = function(event) {
+    document.getElementById('result').textContent = event.data;
+    dump('GOT: ' + event.data + '\n');
+  };
+  
+  worker.onerror = function(error) {
+    dump('Worker error: ' + error.message + '\n');
+    throw error;
+  };
+  
+  worker.postMessage('5');
+</script>
+</body>
+</html>
